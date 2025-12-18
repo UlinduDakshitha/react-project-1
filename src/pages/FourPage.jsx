@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setData, nextStep } from "../redux/userSlice";
+import { setData, nextStep } from "../States/UserSlice";
 import Layout from "../components/Layout";
 
 

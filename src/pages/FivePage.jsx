@@ -1,10 +1,13 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { nextStep } from "../States/UserSlice";
 import { Box, Button, TextField, Slider } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ChildCareIcon from "@mui/icons-material/ChildCare";
 import { useState } from "react";
+import MyDetailsHeader from "../components/MyDetailsHeader";
 
 export default function PageFive() {
+  const dispatch = useDispatch();
   const u = useSelector(s => s.user);
   const [numKids, setNumKids] = useState(2);
   const [kids, setKids] = useState([
@@ -34,7 +37,10 @@ export default function PageFive() {
   };
 
   return (
-    <Box style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", minHeight: "80vh", padding: "40px" }}>
+    <Box style={{ display: "flex", flexDirection: "column", minHeight: "80vh" }}>
+      <MyDetailsHeader step="5/5" />
+      
+      <Box style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", flex: 1, padding: "40px" }}>
       {/* Header */}
       <Box style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", marginBottom: "40px" }}>
         <Button startIcon={<ArrowBackIcon />} style={{ textTransform: "none", color: "#000" }}>
@@ -43,8 +49,6 @@ export default function PageFive() {
         <h2 style={{ margin: 0, fontSize: "24px", fontWeight: "bold" }}>My details</h2>
         <Box style={{ fontSize: "14px", color: "#666" }}>5/5</Box>
       </Box>
-
-      {/* User Info */}
       <Box style={{ textAlign: "center", marginBottom: "40px" }}>
         <p style={{ fontSize: "18px", margin: "10px 0" }}>
           My name is <span style={{ color: "#FF6633", fontWeight: "bold" }}>{u.firstName}</span>
@@ -116,6 +120,7 @@ export default function PageFive() {
 
       {/* Next Button */}
       <Button
+        onClick={() => dispatch(nextStep())}
         style={{
           marginTop: "20px",
           padding: "12px 30px",
@@ -129,6 +134,7 @@ export default function PageFive() {
       >
         Next →
       </Button>
+      </Box>
     </Box>
   );
 }

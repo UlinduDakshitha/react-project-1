@@ -1,12 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-import { setData } from "../States/UserSlice";
+import { useSelector } from "react-redux";
 import { Box, Button, TextField, Slider } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ChildCareIcon from "@mui/icons-material/ChildCare";
 import { useState } from "react";
 
 export default function PageFive() {
-  const dispatch = useDispatch();
   const u = useSelector(s => s.user);
   const [numKids, setNumKids] = useState(2);
   const [kids, setKids] = useState([

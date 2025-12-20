@@ -14,7 +14,7 @@ export default function PageFour() {
 
   return (
     <Box style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", minHeight: "80vh", padding: "40px" }}>
-      {/* Header */}
+      
       <Box style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", marginBottom: "40px" }}>
         <Button startIcon={<ArrowBackIcon />} style={{ textTransform: "none", color: "#000" }}>
           Back
@@ -23,7 +23,7 @@ export default function PageFour() {
         <Box style={{ fontSize: "14px", color: "#666" }}>4/5</Box>
       </Box>
 
-      {/* User Info */}
+      
       <Box style={{ textAlign: "center", marginBottom: "50px" }}>
         <p style={{ fontSize: "18px", margin: "10px 0" }}>
           My name is <span style={{ color: "#FF6633", fontWeight: "bold" }}>{user.firstName}</span>
@@ -34,12 +34,12 @@ export default function PageFour() {
         </p>
       </Box>
 
-      {/* Title */}
+      
       <h1 style={{ fontSize: "36px", fontWeight: "bold", textAlign: "center", marginBottom: "40px" }}>
         Are you married?
       </h1>
 
-      {/* Martial Status */}
+      
       <Box style={{ width: "100%", maxWidth: "500px", display: "flex", flexDirection: "column", gap: "20px" }}>
         <Box>
           <label style={{ fontSize: "12px", color: "#666", display: "block", marginBottom: "12px" }}>Martial Status</label>
@@ -59,7 +59,7 @@ export default function PageFour() {
                 cursor: "pointer"
               }}
             >
-              ♀ Single
+              
             </Button>
             <Button
               onClick={() => dispatch(setData({ maritalStatus: "married" }))}
@@ -76,12 +76,11 @@ export default function PageFour() {
                 cursor: "pointer"
               }}
             >
-              ⚬ Married
+              
             </Button>
           </Box>
         </Box>
-
-        {/* Wife Name */}
+        
         {user.maritalStatus === "married" && (
           <Box>
             <label style={{ fontSize: "12px", color: "#666", display: "block", marginBottom: "8px" }}>My wife is</label>
@@ -97,7 +96,7 @@ export default function PageFour() {
         )}
       </Box>
 
-      {/* Next Button */}
+      
       <Button
         disabled={!isValid}
         onClick={() => dispatch(nextStep())}
